@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "task-1.js",
   "scripts": {
-    "dev": "node task-2.js"
+    "dev": "node task-3.js"
   },
   "author": "",
   "license": "ISC",
