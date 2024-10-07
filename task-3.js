@@ -6,7 +6,6 @@ function delay(ms) {
   });
 }
 
-// Виклик функції
 delay(7000).then((value) => console.log(value));
 delay(2000).then((value) => console.log(value));
 delay(5000).then((value) => console.log(value));
