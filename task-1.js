@@ -1,11 +1,9 @@
 const findArrayFromRange = (fromNum, toNum) => {
   const array = [];
 
-  for (i = fromNum; i <= toNum; i++) {
+  for (let i = fromNum; i <= toNum; i++) {
     if (i % 3 === 0 || i % 5 === 0 || i % 7 === 0) {
       array.push(i);
-    } else {
-      continue;
     }
   }
 
