@@ -18,5 +18,20 @@ INSERT INTO UserPreferences (PreferenceID, Description, LanguageCode, UserId) VA
 
 -- DELETE FROM Users WHERE ID = 1;
 
+CREATE OR REPLACE PROCEDURE add_user(p_user JSON)
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    INSERT INTO Users (ID, Name, Email)
+    VALUES (
+        (p_user->>'ID')::INT,
+        p_user->>'Name',
+        p_user->>'Email'
+    );
+END;
+$$;
+
+CALL add_user('{"ID": "3", "Name": "user", "Email": "email@"}'::json);
+
 -- ALTER TABLE users ADD UNIQUE (name)
 -- ALTER TABLE users ALTER COLUMN name SET NOT NULL;
