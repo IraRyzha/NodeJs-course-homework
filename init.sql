@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS Users (
 );
 
 CREATE TABLE IF NOT EXISTS UserPreferences (
-    PreferenceID SERIAL PRIMARY KEY,
+    PreferenceID SERIAL PRIMARY KEY, 
     Description VARCHAR(255),
     LanguageCode VARCHAR(100),
     UserId INT,
