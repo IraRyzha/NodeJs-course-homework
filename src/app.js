@@ -1,6 +1,6 @@
-import { of, interval } from "rxjs";
+import { of, interval, delay, pipe } from "rxjs";
 
-import { mergeMap, take } from "rxjs/operators";
+import { mergeMap, concatMap, take } from "rxjs/operators";
 
 const firstObservable = of("Перший потік");
 
@@ -14,8 +14,10 @@ firstObservable
   )
   .subscribe((data) => console.log("nested subscribe:", data));
 
-// firstObservable.subscribe((data1) => {
-//   secondObservable().subscribe((data2) => {
-//     console.log("Вкладений subscribe:", data2);
-//   });
-// });
+// additional task
+
+// const obs = of(1, 2, 3, 4, 5);
+
+// obs
+//   .pipe(concatMap((value) => of(value).pipe(delay(1000))))
+//   .subscribe((data) => console.log(data));
