@@ -2,6 +2,7 @@
   "name": "express-docker-postgres",
   "version": "1.0.0",
   "main": "src/app.js",
+  "type": "module",
   "scripts": {
     "start": "node src/app.js",
     "dev": "nodemon src/app.js"
@@ -9,9 +10,10 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "nodemon": "^3.1.7",
     "mongoose": "^5.12.3",
-    "redis": "^4.1.0"
+    "nodemon": "^3.1.7",
+    "redis": "^4.1.0",
+    "rxjs": "^7.8.1"
   },
   "devDependencies": {
     "dotenv": "^16.4.5"
