@@ -1,23 +1,34 @@
-import { of, interval, delay, pipe } from "rxjs";
+// function* generator() {
+//   yield 1;
+//   yield 2;
+//   yield 3;
+// }
 
-import { mergeMap, concatMap, take } from "rxjs/operators";
+// const generator1 = generator();
 
-const firstObservable = of("Перший потік");
+// console.log(generator1.next().value);
+// console.log(generator1.next().value);
+// console.log(generator1.next().value);
 
-const secondObservable = () => interval(1000).pipe(take(3));
+function createGenerator() {
+  let count = 0;
 
-firstObservable
-  .pipe(
-    mergeMap(() => {
-      return secondObservable();
-    })
-  )
-  .subscribe((data) => console.log("nested subscribe:", data));
+  return function* () {
+    if (count < 3) {
+      count++;
+      yield count;
+    } else {
+      return;
+    }
+  };
+}
 
-// additional task
+const generator2 = createGenerator();
 
-// const obs = of(1, 2, 3, 4, 5);
+console.log(generator2().next().value); // 1
 
-// obs
-//   .pipe(concatMap((value) => of(value).pipe(delay(1000))))
-//   .subscribe((data) => console.log(data));
+console.log(generator2().next().value); // 2
+
+console.log(generator2().next().value); // 3
+
+console.log(generator2().next().value); // undefined
