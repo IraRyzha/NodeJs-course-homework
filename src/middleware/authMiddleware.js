@@ -9,7 +9,7 @@ const authMiddleware = async (req, res, next) => {
     if (!user) {
       return res.status(403).json({ message: "Invalid or expired token" });
     }
-    req.user = user; // Зберігаємо користувача в req
+    req.user = user;
     next();
   } catch (err) {
     res.status(403).json({ message: "Invalid token" });
